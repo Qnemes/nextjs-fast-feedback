@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>React 2025 | Fast Feedback</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
