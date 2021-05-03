@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 export async function getStaticProps(context) {
   const { siteId } = context.params;
-  const { feedback, error } = await getAllFeedback(siteId);
+  const { feedback } = await getAllFeedback(siteId);
 
   return {
     props: {
@@ -43,7 +43,7 @@ export default function SiteFeedback({ initialFeedback }) {
       author: auth.user.name,
       authorId: auth.user.uid,
       siteId: router.query.siteId,
-      text: event.target.elements.comment.value,  //direct access instead of ref, better performance
+      text: event.target.elements.comment.value, //direct access instead of ref, better performance
       createdAt: new Date().toISOString(),
       provider: auth.user.provider,
       status: "pending"

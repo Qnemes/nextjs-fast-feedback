@@ -1,6 +1,6 @@
 import { useAuth } from '@/lib/auth';
 import { Button, Box, Flex, Text, Link } from "@chakra-ui/react";
-import { FastFeedbackIcon } from '@/styles/icons';
+import { FastFeedbackIcon, GitHubIcon, GoogleIcon } from '@/styles/icons';
 import { Fragment } from 'react';
 import Head from 'next/head'
 
@@ -55,18 +55,38 @@ export default function Home() {
               View Dashboard
             </Button>
           ) : (
-            <Button as="a"
-              backgroundColor="gray.900"
-              color="white"
-              fontWeight="medium"
-              mt={4}
-              maxW="200px"
-              _hover={{ bg: 'gray.700' }}
-              _active={{
-                bg: 'gray.800',
-                transform: 'scale(0.95)'
-              }}
-              onClick={(e) => auth.signinWithGitHub()}>Sign In</Button>
+            <Flex direction={['column', 'row']}>
+              <Button
+                backgroundColor="gray.900"
+                color="white"
+                fontWeight="medium"
+                leftIcon={<GitHubIcon />}
+                mt={4}
+                mr={2}
+                _hover={{ bg: 'gray.700' }}
+                _active={{
+                  bg: 'gray.800',
+                  transform: 'scale(0.95)'
+                }}
+                onClick={(e) => auth.signinWithGitHub()}>
+                Sign In with GitHub
+              </Button>
+              <Button
+                backgroundColor="white"
+                color="gray.900"
+                variant="outline"
+                fontWeight="medium"
+                leftIcon={<GoogleIcon />}
+                mt={4}
+                _hover={{ bg: 'gray.100' }}
+                _active={{
+                  bg: 'gray.100',
+                  transform: 'scale(0.95)'
+                }}
+                onClick={(e) => auth.signinWithGoogle()}>
+                Sign In with Google
+              </Button>
+            </Flex>
           )}
         </Flex>
       </Box>
