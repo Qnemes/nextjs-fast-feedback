@@ -14,10 +14,11 @@ const logger = pino({
   },
   level: "debug",
   base: {
-    processes_str: JSON.stringify(process.versions),
-    revision: process.env.VERCEL_GITHUB_COMMIT_SHA,
+    env: process.env.NODE_ENV || 'ENV not set',
+    revision: process.env.VERCEL_GITHUB_COMMIT_SHA
   },
-}, stream);
+}, stream
+);
 
 const formatObjectKeys = (headers) => {
   const keyValues = {};
