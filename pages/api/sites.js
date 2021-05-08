@@ -1,15 +1,29 @@
 import { getUserSites, getAllSites } from "@/lib/db-admin";
 import { auth } from "@/lib/firebase-admin";
+import { logger, formatObjectKeys } from "@/utils/logger";
 
 export default async (req, res) => {
   try {
     const { token } = req.headers;
     const { uid } = await auth.verifyIdToken(token);
-    // const { sites } = await getUserSites(uid); // temporary commented for all sites
-    const { sites } = await getAllSites();
+    const { sites } = await getUserSites(uid);
 
     res.status(200).json({ sites });
   } catch (error) {
+
+    logger.error({
+      request: {
+        headers: formatObjectKeys(req.headers),
+        url: req.url,
+        method: req.method
+      },
+      response: {
+        statusCode: res.statusCode
+      }
+    },
+      error.message
+    );
+
     res.status(200).json({ error });
   }
 }
