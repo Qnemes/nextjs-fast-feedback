@@ -1,16 +1,15 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { AuthProvider } from '@/lib/auth';
-import Head from 'next/head'
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
+
 import customTheme from '@/styles/theme';
 
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={customTheme}>
       <AuthProvider>
-        <Head>
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
-          <title>Fast Feedback</title>
-        </Head>
+        <DefaultSeo {...SEO} />
         <Component {...pageProps} />
       </AuthProvider >
     </ChakraProvider >

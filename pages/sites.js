@@ -1,29 +1,42 @@
 import { useAuth } from '@/lib/auth';
 import DashboardShell from "@/components/DashboardShell";
 import EmptyState from '@/components/EmptyState';
+import UpgradeEmptyState from '@/components/UpgradeEmptyState';
 import SiteTableHeader from '@/components/SiteTableHeader';
 import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import useSWR from 'swr';
 import fetcher from '@/utils/fetcher';
 import SiteTable from '@/components/SiteTable';
 
-export default function Dashboard() {
+const Dashboard = () => {
   const { user } = useAuth();
   const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher);
-
+  const isPaidAccount = user?.stripeRole !== 'free';
 
   if (!data) {
     return (
       <DashboardShell>
-        <SiteTableHeader isPaidAccount={true} />
+        <SiteTableHeader />
         <SiteTableSkeleton />
       </DashboardShell>
     )
   }
+
+  if (data.sites.length) {
+    return (
+      <DashboardShell>
+        <SiteTableHeader isPaidAccount={isPaidAccount} />
+        <SiteTable sites={data.sites} />
+      </DashboardShell>
+    );
+  }
+
   return (
     <DashboardShell>
-      <SiteTableHeader isPaidAccount={true} />
-      {data.sites.length ? <SiteTable sites={data.sites} /> : <EmptyState />}
+      <SiteTableHeader isPaidAccount={isPaidAccount} />
+      {isPaidAccount ? <EmptyState /> : <UpgradeEmptyState />}
     </DashboardShell>
   )
 }
+
+export default Dashboard;

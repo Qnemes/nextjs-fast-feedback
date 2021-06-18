@@ -5,18 +5,20 @@ import fetcher from '@/utils/fetcher';
 import DashboardShell from '@/components/DashboardShell';
 import FeedbackTable from '@/components/FeedbackTable';
 import FeedbackEmptyState from '@/components/FeedbackEmptyState';
-import FeedbackTableHeader from '@/components/FeedbackTableHeader';
+import SiteHeader from '@/components/SiteHeader';
 import FeedbackTableSkeleton from '@/components/FeedbackTableSkeleton';
 import SiteTableSkeleton from '@/components/SiteTableSkeleton';
+import { useRouter } from 'next/router';
 
-const AllFeedback = () => {
+const SiteFeedback = () => {
   const { user } = useAuth();
-  const { data } = useSWR(user ? ['/api/feedback', user.token] : null, fetcher);
+  const { query } = useRouter();
+  const { data } = useSWR(user ? [`/api/feedback/${query.siteId}`, user.token] : null, fetcher);
 
   if (!data) {
     return (
       <DashboardShell>
-        <FeedbackTableHeader />
+        <SiteHeader />
         <FeedbackTableSkeleton />
         <SiteTableSkeleton />
       </DashboardShell>
@@ -25,7 +27,7 @@ const AllFeedback = () => {
 
   return (
     <DashboardShell>
-      <FeedbackTableHeader />
+      <SiteHeader siteName={data?.site?.siteName} />
       {data?.feedback?.length ? (
         <FeedbackTable feedback={data.feedback} />
       ) : (
@@ -35,4 +37,4 @@ const AllFeedback = () => {
   )
 }
 
-export default AllFeedback;
+export default SiteFeedback;
