@@ -21,13 +21,13 @@ export default function FeedbackLink({ paths }) {
         // color={linkColor[colorMode]}
         fontWeight="bold"
         fontSize="sm"
-        href={`/sites/${paths.join('/')}`}
+        href={`/site/${paths.join('/')}`}
         target="_blank"
       >
         Leave a comment →
       </Link>
       <Link fontSize="xs" color="gray.500" href="/" target="_blank">
-        Powered by Fast Feedback
+        Powered by Fast Feedback (Alpha)
       </Link>
     </Flex>
   );

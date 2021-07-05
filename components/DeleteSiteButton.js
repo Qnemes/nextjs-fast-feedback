@@ -1,4 +1,4 @@
-import React, { useState, useRef, Fragment } from 'react';
+import React, { useState, useRef } from 'react';
 import { mutate } from 'swr';
 import {
   AlertDialog,
@@ -12,25 +12,22 @@ import {
 } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons'
 
-import { deleteFeedback } from '@/lib/db';
+import { deleteSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
 
-const DeleteFeedbackButton = ({ feedbackId }) => {
+const DeleteSiteButton = ({ siteId }) => {
   const [isOpen, setIsOpen] = useState();
   const cancelRef = useRef();
   const auth = useAuth();
 
   const onClose = () => setIsOpen(false);
   const onDelete = () => {
-    deleteFeedback(feedbackId);
+    deleteSite(siteId);
     mutate(
-      ['/api/feedback', auth.user.token],
-      async data => {
-        console.log(data);
+      ['/api/sites', auth.user.token],
+      async (data) => {
         return {
-          feedback: data.feedback.filter(
-            feedback => feedback.id !== feedbackId
-          )
+          sites: data.sites.filter((site) => site.id !== siteId)
         };
       },
       false
@@ -39,9 +36,9 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <IconButton
-        aria-label="Delete feedback"
+        aria-label="Delete site"
         icon={<DeleteIcon />}
         variant="ghost"
         onClick={() => setIsOpen(true)}
@@ -54,23 +51,29 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
         <AlertDialogOverlay />
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
-            Delete Feedback
+            Delete Site
           </AlertDialogHeader>
           <AlertDialogBody>
-            Are you sure? You can&apos;t undo this action afterwards.
+            Are you sure? This will also delete all feedback left on the site.
+            You can&apos;t undo this action afterwards.
           </AlertDialogBody>
           <AlertDialogFooter>
             <Button ref={cancelRef} onClick={onClose}>
               Cancel
             </Button>
-            <Button fontWeight="bold" colorScheme="red" onClick={onDelete} ml={3}>
+            <Button
+              fontWeight="bold"
+              colorScheme="red"
+              onClick={onDelete}
+              ml={3}
+            >
               Delete
             </Button>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-    </Fragment>
+    </>
   );
 };
 
-export default DeleteFeedbackButton;
+export default DeleteSiteButton;

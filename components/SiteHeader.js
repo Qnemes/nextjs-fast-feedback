@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,38 +10,60 @@ import {
   Box
 } from '@chakra-ui/react';
 
-// import EditSiteModal from './EditSiteModal';
+import { NextSeo } from 'next-seo';
+import EditSiteModal from './EditSiteModal';
 
-const SiteHeader = ({ siteName }) => {
+const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
+  const siteName = site?.siteName;
+  const router = useRouter();
+  const path = router.asPath;
+
+  let title = "";
+  (siteName === undefined) ?
+    title = `Fast Feedback – Loading...` : title = `Fast Feedback – ${siteName}`
+
+  const url = `https://fastfeedback.io${path}`;
 
   return (
-    <Box mx={4}>
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <NextLink href="/sites" passHref>
-            <BreadcrumbLink>Sites</BreadcrumbLink>
-          </NextLink>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <BreadcrumbLink>{siteName || '-'}</BreadcrumbLink>
-        </BreadcrumbItem>
-        {/* {siteName && route && (
+    <Fragment>
+      <NextSeo
+        title={title}
+        canonical={url}
+        openGraph={{
+          url,
+          title
+        }}
+      />
+      <Box mx={4}>
+        <Breadcrumb>
           <BreadcrumbItem>
-            <NextLink href={`/site/${siteId}/${route}`} passHref>
-              <BreadcrumbLink>{route}</BreadcrumbLink>
+            <NextLink href="/sites" passHref>
+              <BreadcrumbLink>Sites</BreadcrumbLink>
             </NextLink>
           </BreadcrumbItem>
-        )} */}
-      </Breadcrumb>
-      <Flex justifyContent="space-between">
-        <Heading mb={8}>{siteName || '-'}</Heading>
-        {/* {isSiteOwner && (
-          <EditSiteModal settings={site?.settings} siteId={siteId}>
-            Edit Site
-          </EditSiteModal>
-        )} */}
-      </Flex>
-    </Box>
+          <BreadcrumbItem>
+            <NextLink href={`/site/${siteId}`} passHref>
+              <BreadcrumbLink>{siteName || '-'}</BreadcrumbLink>
+            </NextLink>
+          </BreadcrumbItem>
+          {siteName && route && (
+            <BreadcrumbItem>
+              <NextLink href={`/site/${siteId}/${route}`} passHref>
+                <BreadcrumbLink>{route}</BreadcrumbLink>
+              </NextLink>
+            </BreadcrumbItem>
+          )}
+        </Breadcrumb>
+        <Flex justifyContent="space-between">
+          <Heading mb={8}>{siteName || '-'}</Heading>
+          {isSiteOwner && (
+            <EditSiteModal settings={site?.settings} siteId={siteId}>
+              Edit Site
+            </EditSiteModal>
+          )}
+        </Flex>
+      </Box>
+    </Fragment>
   );
 };
 

@@ -77,7 +77,7 @@ const AddSiteModal = ({ children }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>Name</FormLabel>
+              <FormLabel htmlFor="site-input">Name</FormLabel>
               <Input id="site-input"
                 name="name"
                 placeholder="My site"
@@ -88,7 +88,7 @@ const AddSiteModal = ({ children }) => {
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Link</FormLabel>
+              <FormLabel htmlFor="link-input">Link</FormLabel>
               <Input id="link-input"
                 name="url"
                 placeholder="https://example.com"

@@ -1,10 +1,33 @@
+import Head from 'next/head';
+import Script from 'next/script';
 import { useAuth } from '@/lib/auth';
-import { Button, Box, Flex, Text, Link } from "@chakra-ui/react";
-import { FastFeedbackIcon, GitHubIcon, GoogleIcon } from '@/styles/icons';
-import { Fragment } from 'react';
-import Head from 'next/head'
+import { getAllFeedback, getSite } from '@/lib/db-admin';
 
-export default function Home() {
+import { Fragment } from 'react';
+import { Box, Button, Flex, Text, Icon, Link, Stack } from "@chakra-ui/react";
+import { FastFeedbackIcon, GitHubIcon, GoogleIcon } from '@/styles/icons';
+
+import Feedback from '@/components/Feedback';
+import FeedbackLink from '@/components/FeedbackLink';
+import LoginButtons from '@/components/LoginButtons';
+import Footer from '@/components/Footer';
+
+const SITE_ID = process.env.NEXT_PUBLIC_HOME_PAGE_SITE_ID;
+
+export async function getStaticProps(context) {
+  const { feedback } = await getAllFeedback(SITE_ID);
+  const { site } = await getSite(SITE_ID);
+
+  return {
+    props: {
+      allFeedback: feedback,
+      site
+    },
+    revalidate: 1
+  };
+}
+
+export default function Home({ allFeedback, site }) {
   const auth = useAuth();
 
   return (
@@ -12,7 +35,7 @@ export default function Home() {
       <Box bg="gray.100" py={16} px={4}>
         <Flex as="main" direction="column" maxW="700px" margin="0 auto">
           <Head>
-            <script
+            {/* <Script
               dangerouslySetInnerHTML={{
                 __html: `
               if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
@@ -20,9 +43,9 @@ export default function Home() {
               }
             `
               }}
-            />
+            /> */}
           </Head>
-          <FastFeedbackIcon color="black" name="github" boxSize="48px" marginBottom={2} />
+          <FastFeedbackIcon color="black" name="logo" boxSize="48px" mb={2} />
           <Text mb={4} fontSize="lg" paddingY={4}>
             <Text as="span" fontWeight="bold" display="inline">
               Fast Feedback
@@ -55,41 +78,30 @@ export default function Home() {
               View Dashboard
             </Button>
           ) : (
-            <Flex direction={['column', 'row']}>
-              <Button
-                backgroundColor="gray.900"
-                color="white"
-                fontWeight="medium"
-                leftIcon={<GitHubIcon />}
-                mt={4}
-                mr={2}
-                _hover={{ bg: 'gray.700' }}
-                _active={{
-                  bg: 'gray.800',
-                  transform: 'scale(0.95)'
-                }}
-                onClick={(e) => auth.signinWithGitHub()}>
-                Sign In with GitHub
-              </Button>
-              <Button
-                backgroundColor="white"
-                color="gray.900"
-                variant="outline"
-                fontWeight="medium"
-                leftIcon={<GoogleIcon />}
-                mt={4}
-                _hover={{ bg: 'gray.100' }}
-                _active={{
-                  bg: 'gray.100',
-                  transform: 'scale(0.95)'
-                }}
-                onClick={(e) => auth.signinWithGoogle()}>
-                Sign In with Google
-              </Button>
-            </Flex>
+            <LoginButtons />
           )}
         </Flex>
       </Box>
+      <Box
+        display="flex"
+        flexDirection="column"
+        width="full"
+        maxWidth="700px"
+        margin="0 auto"
+        mt={8}
+        px={4}
+      >
+        <FeedbackLink paths={[SITE_ID]} />
+        {allFeedback.map((feedback, index) => (
+          <Feedback
+            key={feedback.id}
+            settings={site?.settings}
+            isLast={index === allFeedback.length - 1}
+            {...feedback}
+          />
+        ))}
+      </Box>
+      <Footer />
     </Fragment>
   )
 }
