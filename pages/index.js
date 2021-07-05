@@ -4,8 +4,8 @@ import { useAuth } from '@/lib/auth';
 import { getAllFeedback, getSite } from '@/lib/db-admin';
 
 import { Fragment } from 'react';
-import { Box, Button, Flex, Text, Icon, Link, Stack } from "@chakra-ui/react";
-import { FastFeedbackIcon, GitHubIcon, GoogleIcon } from '@/styles/icons';
+import { Box, Button, Flex, Text, Link } from "@chakra-ui/react";
+import { FastFeedbackIcon } from '@/styles/icons';
 
 import Feedback from '@/components/Feedback';
 import FeedbackLink from '@/components/FeedbackLink';
@@ -14,7 +14,7 @@ import Footer from '@/components/Footer';
 
 const SITE_ID = process.env.NEXT_PUBLIC_HOME_PAGE_SITE_ID;
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const { feedback } = await getAllFeedback(SITE_ID);
   const { site } = await getSite(SITE_ID);
 
@@ -35,7 +35,7 @@ export default function Home({ allFeedback, site }) {
       <Box bg="gray.100" py={16} px={4}>
         <Flex as="main" direction="column" maxW="700px" margin="0 auto">
           <Head>
-            {/* <Script
+            <script
               dangerouslySetInnerHTML={{
                 __html: `
               if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
@@ -43,7 +43,7 @@ export default function Home({ allFeedback, site }) {
               }
             `
               }}
-            /> */}
+            />
           </Head>
           <FastFeedbackIcon color="black" name="logo" boxSize="48px" mb={2} />
           <Text mb={4} fontSize="lg" paddingY={4}>

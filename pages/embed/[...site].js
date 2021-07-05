@@ -39,7 +39,7 @@ const EmbeddedFeedbackPage = ({ initialFeedback, site }) => {
 
   return (
     <Box display="flex" flexDirection="column" width="full">
-      <FeedbackLink paths={router.query.site} />
+      <FeedbackLink paths={router?.query?.site || []} />
       {initialFeedback?.length ? (
         initialFeedback.map((feedback, index) => (
           <Feedback

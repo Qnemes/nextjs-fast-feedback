@@ -18,10 +18,7 @@ const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
   const router = useRouter();
   const path = router.asPath;
 
-  let title = "";
-  (siteName === undefined) ?
-    title = `Fast Feedback – Loading...` : title = `Fast Feedback – ${siteName}`
-
+  const title = siteName ? `Fast Feedback – ${siteName}` : `Fast Feedback – Loading...`;
   const url = `https://fastfeedback.io${path}`;
 
   return (
