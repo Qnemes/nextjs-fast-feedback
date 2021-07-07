@@ -41,6 +41,7 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
   return (
     <Fragment>
       <IconButton
+        id="delete-feedback-button"
         aria-label="Delete feedback"
         icon={<DeleteIcon />}
         variant="ghost"

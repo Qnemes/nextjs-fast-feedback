@@ -62,7 +62,7 @@ const DashboardShell = ({ children }) => {
               {user && (
                 <Button mr={2} variant="ghost" onClick={() => signout()}>Log Out</Button>
               )}
-              <NextLink href="/account" passHref>
+              <NextLink id="account-link-button" href="/account" passHref>
                 <Link>
                   <Avatar size="sm" src={user?.photoUrl} />
                 </Link>

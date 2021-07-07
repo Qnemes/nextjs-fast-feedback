@@ -3,7 +3,7 @@ import { Box, Heading, Text, Divider, Icon, Flex } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import { GitHubIcon, GoogleIcon } from '@/styles/icons';
 
-export default function Feedback({ author, text, createdAt, provider, isLast, settings }) {
+export default function Feedback({ author, text, createdAt, provider, isLast, settings, index }) {
   let icon = null;
 
   if (provider) { // don`t know better approach to get proper icon in new Chakra-UI v2
@@ -18,7 +18,7 @@ export default function Feedback({ author, text, createdAt, provider, isLast, se
   }
 
   return (
-    <Box borderRadius={4} maxWidth="700px" w="full">
+    <Box borderRadius={4} maxWidth="700px" w="full" id={`feedback-${index}}`}>
       <Flex align="center">
         <Heading size="sm" as="h3" mb={0} color="gray.900" fontWeight="medium">
           {author}
