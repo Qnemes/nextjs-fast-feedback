@@ -59,6 +59,7 @@ const FeedbackPage = () => {
   const LoginOrLeaveFeedback = () =>
     user ? (
       <Button
+        id="leave-feedback-button"
         type="submit"
         isDisabled={!siteData || !feedbackData}
         backgroundColor="gray.900"
@@ -107,6 +108,7 @@ const FeedbackPage = () => {
         {allFeedback &&
           allFeedback.map((feedback, index) => (
             <Feedback
+              id={`feedback-${index}}`}
               key={feedback.id}
               settings={site?.settings}
               isLast={index === allFeedback.length - 1}
