@@ -18,7 +18,7 @@ export default function Feedback({ author, text, createdAt, provider, isLast, se
   }
 
   return (
-    <Box borderRadius={4} maxWidth="700px" w="full" id={`feedback-${index}}`}>
+    <Box borderRadius={4} maxWidth="700px" w="full" id={`feedback-${index}`}>
       <Flex align="center">
         <Heading size="sm" as="h3" mb={0} color="gray.900" fontWeight="medium">
           {author}

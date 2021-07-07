@@ -60,10 +60,10 @@ const DashboardShell = ({ children }) => {
             </Flex>
             <Flex justifyContent="center" alignItems="center">
               {user && (
-                <Button mr={2} variant="ghost" onClick={() => signout()}>Log Out</Button>
+                <Button id="user-logout-button" mr={2} variant="ghost" onClick={() => signout()}>Log Out</Button>
               )}
-              <NextLink id="account-link-button" href="/account" passHref>
-                <Link>
+              <NextLink href="/account" passHref>
+                <Link id="account-link-button">
                   <Avatar size="sm" src={user?.photoUrl} />
                 </Link>
               </NextLink>

@@ -7,7 +7,7 @@ const LoginButtons = () => {
   const auth = useAuth();
 
   return (
-    <Flex direction={['column', 'row']}>
+    <Flex id="login-buttons" direction={['column', 'row']}>
       <Button
         onClick={() => auth.signinWithGitHub()}
         backgroundColor="gray.900"
