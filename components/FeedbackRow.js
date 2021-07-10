@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Code, Switch } from '@chakra-ui/react';
 import { mutate } from 'swr';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import NextLink from 'next/link';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Heading, Flex, Box } from '@chakra-ui/react';
 

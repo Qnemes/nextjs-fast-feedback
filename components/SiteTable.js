@@ -1,4 +1,3 @@
-import React from 'react';
 import NextLink from 'next/link';
 import { Box, Link } from '@chakra-ui/react';
 import { parseISO, format } from 'date-fns';

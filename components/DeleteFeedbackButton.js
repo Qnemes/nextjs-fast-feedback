@@ -1,4 +1,4 @@
-import React, { useState, useRef, Fragment } from 'react';
+import { useState, useRef, Fragment } from 'react';
 import { mutate } from 'swr';
 import {
   AlertDialog,

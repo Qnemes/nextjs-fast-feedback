@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import Head from 'next/head';
 import { useAuth } from '@/lib/auth';
 import { getAllFeedback, getSite } from '@/lib/db-admin';
