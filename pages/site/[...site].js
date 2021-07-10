@@ -39,7 +39,7 @@ const FeedbackPage = () => {
       route: route || '/',
       author: user.name,
       authorId: user.uid,
-      text: event.target.elements.comment.value, //direct access instead of ref, better performance
+      text: event.target.elements.comment.value.replace('\n', '\n\n'), //direct access instead of ref, better performance
       createdAt: new Date().toISOString(),
       provider: user.provider,
       status: "active"
@@ -108,8 +108,8 @@ const FeedbackPage = () => {
         {allFeedback &&
           allFeedback.map((feedback, index) => (
             <Feedback
+              key={feedback?.id}
               index={index}
-              key={feedback.id}
               settings={site?.settings}
               isLast={index === allFeedback.length - 1}
               {...feedback}

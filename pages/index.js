@@ -1,15 +1,15 @@
+import React, { Fragment } from 'react';
 import Head from 'next/head';
-import Script from 'next/script';
 import { useAuth } from '@/lib/auth';
 import { getAllFeedback, getSite } from '@/lib/db-admin';
 
-import { Fragment } from 'react';
 import { Box, Button, Flex, Text, Link } from "@chakra-ui/react";
 import { FastFeedbackIcon } from '@/styles/icons';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 
-import Feedback from '@/components/Feedback';
-import FeedbackLink from '@/components/FeedbackLink';
 import LoginButtons from '@/components/LoginButtons';
+import FeedbackLink from '@/components/FeedbackLink';
+import Feedback from '@/components/Feedback';
 import Footer from '@/components/Footer';
 
 const SITE_ID = process.env.NEXT_PUBLIC_HOME_PAGE_SITE_ID;
@@ -65,6 +65,8 @@ export default function Home({ allFeedback, site }) {
               as="a"
               href="/sites"
               backgroundColor="gray.900"
+              paddingRight={2}
+              rightIcon={<ArrowForwardIcon />}
               color="white"
               fontWeight="medium"
               mt={4}

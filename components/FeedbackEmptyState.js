@@ -11,7 +11,7 @@ const FeedbackEmptyState = () => (
     align="center"
     direction="column"
   >
-    <Heading size="lg" mb={2}>
+    <Heading id="no-feedback-heading" size="lg" mb={2}>
       There isn&apos;t any feedback.
     </Heading>
     <Text mb={4}>Share your sites!</Text>

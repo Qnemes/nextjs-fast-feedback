@@ -26,7 +26,6 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
     mutate(
       ['/api/feedback', auth.user.token],
       async data => {
-        console.log(data);
         return {
           feedback: data.feedback.filter(
             feedback => feedback.id !== feedbackId
@@ -48,6 +47,7 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
         onClick={() => setIsOpen(true)}
       />
       <AlertDialog
+        id="delete-feedback-modal"
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
         onClose={onClose}
@@ -64,7 +64,7 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
             <Button ref={cancelRef} onClick={onClose}>
               Cancel
             </Button>
-            <Button fontWeight="bold" colorScheme="red" onClick={onDelete} ml={3}>
+            <Button id="delete-feedback-modal-button" fontWeight="bold" colorScheme="red" onClick={onDelete} ml={3}>
               Delete
             </Button>
           </AlertDialogFooter>

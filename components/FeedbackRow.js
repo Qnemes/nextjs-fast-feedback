@@ -5,6 +5,8 @@ import { mutate } from 'swr';
 import { Td } from './Table';
 import { useAuth } from '@/lib/auth';
 import { updateFeedback } from '@/lib/db';
+import ReactMarkdown from 'react-markdown';
+import MDXComponents from './MDXComponents';
 import DeleteFeedbackButton from './DeleteFeedbackButton';
 
 const FeedbackRow = ({ id, author, text, route, status }) => {
@@ -19,10 +21,14 @@ const FeedbackRow = ({ id, author, text, route, status }) => {
   return (
     <Box as="tr" key={id}>
       <Td fontWeight="medium">{author}</Td>
-      <Td>{text}</Td>
+      <Td>
+        <ReactMarkdown>
+          {text}
+        </ReactMarkdown>
+      </Td>
       <Td>
         <Code
-          maxW="150px"
+          maxWidth="150px"
           textOverflow="ellipsis"
           whiteSpace="nowrap"
           overflow="hidden"

@@ -1,4 +1,3 @@
-import React from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router'
 import { Box, Flex, Link, Avatar, Button } from '@chakra-ui/react';
@@ -47,8 +46,8 @@ const DashboardShell = ({ children }) => {
           >
             <Flex align="center">
               <NextLink href="/" passHref>
-                <Link>
-                  <FastFeedbackIcon boxSize="24px" marginRight={8} />
+                <Link marginRight={8}>
+                  <FastFeedbackIcon aria-label="Back to homepage" boxSize="24px" />
                 </Link>
               </NextLink>
               <NextLink href="/sites" passHref>
