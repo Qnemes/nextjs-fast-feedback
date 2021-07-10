@@ -59,6 +59,7 @@ export default function Feedback({ author, text, createdAt, provider, isLast, se
             table: MDXComponents.table,
             thead: MDXComponents.th,
             td: MDXComponents.td,
+            /* eslint-disable react/display-name */
             code: ({ value }) => (
               <pre>
                 <Code borderRadius={8} p={4} my={4}>
@@ -66,6 +67,7 @@ export default function Feedback({ author, text, createdAt, provider, isLast, se
                 </Code>
               </pre>
             ),
+            /* eslint-enable react/display-name */
             pre: MDXComponents.inlineCode
           }}
         >

@@ -152,7 +152,7 @@ const Hr = () => {
 
   return <Divider borderColor={borderColor[colorMode]} my={4} w="100%" />;
 };
-
+/* eslint-disable react/display-name */
 const MDXComponents = {
   h1: (props) => <Heading as="h1" size="xl" my={4} {...props} />,
   h2: (props) => <DocsHeading as="h2" fontWeight="bold" size="lg" {...props} />,
@@ -179,6 +179,7 @@ const MDXComponents = {
   ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
   ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
   li: (props) => <Box as="li" pb={1} {...props} />,
+  /* eslint-enable react/display-name */
   blockquote: Quote
 };
 
