@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { SettingsIcon } from '@chakra-ui/icons';
 
-import { updateSite } from '@/lib/db';
+import { updateSite } from 'src/lib/db';
 
 const EditSiteModal = ({ settings, siteId, children }) => {
   const toast = useToast();

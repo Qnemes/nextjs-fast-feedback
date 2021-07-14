@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import { Box, Button, FormControl, FormLabel, Textarea } from "@chakra-ui/react";
 
 import useSWR, { mutate } from 'swr';
-import { useAuth } from "@/lib/auth";
-import { createFeedback } from '@/lib/db';
-import fetcher from '@/utils/fetcher';
+import { useAuth } from "src/lib/auth";
+import { createFeedback } from 'src/lib/db';
+import fetcher from 'src/utils/fetcher';
 
-import Feedback from '@/components/Feedback';
-import DashboardShell from '@/components/DashboardShell';
-import SiteHeader from '@/components/SiteHeader';
-import LoginButtons from '@/components/LoginButtons';
+import Feedback from 'src/components/Feedback';
+import DashboardShell from 'src/components/DashboardShell';
+import SiteHeader from 'src/components/SiteHeader';
+import LoginButtons from 'src/components/LoginButtons';
 
 const FeedbackPage = () => {
   const { user, loading } = useAuth();

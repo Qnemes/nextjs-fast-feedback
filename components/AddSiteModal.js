@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { useAuth } from '@/lib/auth';
+import { useAuth } from 'src/lib/auth';
 import { mutate } from 'swr';
-import { createSite } from '@/lib/db';
+import { createSite } from 'src/lib/db';
 import {
   Button,
   Modal,

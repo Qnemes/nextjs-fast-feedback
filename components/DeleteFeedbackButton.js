@@ -12,8 +12,8 @@ import {
 } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons'
 
-import { deleteFeedback } from '@/lib/db';
-import { useAuth } from '@/lib/auth';
+import { deleteFeedback } from 'src/lib/db';
+import { useAuth } from 'src/lib/auth';
 
 const DeleteFeedbackButton = ({ feedbackId }) => {
   const [isOpen, setIsOpen] = useState();

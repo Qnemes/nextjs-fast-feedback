@@ -4,9 +4,9 @@ import {
   StatHelpText
 } from '@chakra-ui/react';
 
-import DashboardShell from '@/components/DashboardShell';
-import { useAuth } from '@/lib/auth';
-import { goToBillingPortal } from '@/lib/db';
+import DashboardShell from 'src/components/DashboardShell';
+import { useAuth } from 'src/lib/auth';
+import { goToBillingPortal } from 'src/lib/db';
 
 const FeedbackUsage = () => (
   <StatGroup>

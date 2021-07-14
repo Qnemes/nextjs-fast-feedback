@@ -1,4 +1,4 @@
-import MdxLayout from '@/components/MdxLayout';
+import MdxLayout from 'src/components/MdxLayout';
 
 export default (props) => <MdxLayout {...props} />;
 
@@ -10,7 +10,7 @@ To get started adding feedback to your site, retrieve the site ID
 from the URL and place this iframe inside your site.
 
 ```
-<iframe src="https://fastfeedback.io/embed/SITE_ID" />
+<iframe src="https://nextjs-fast-feedback.vercel.app/embed/SITE_ID" />
 ```
 
 ## Multiple Routes
@@ -19,7 +19,7 @@ If you want to add feedback to multiple routes in a single site,
 forward a unique slug for that route.
 
 ```
-<iframe src="https://fastfeedback.io/embed/SITE_ID/ROUTE" />
+<iframe src="https://nextjs-fast-feedback.vercel.app/embed/SITE_ID/ROUTE" />
 ```
 
 This is perfect for adding comments to a blog or product reviews.
@@ -36,7 +36,7 @@ something like this. This library is [5.8kB](https://bundlephobia.com/result?p=i
 <IframeResizer
   checkOrigin={false}
   title="Comments"
-  src={`https://fastfeedback.io/embed/SITE_ID`}
+  src={`https://nextjs-fast-feedback.vercel.app/embed/SITE_ID`}
   style={{
     width: '1px',
     minWidth: '100%'
@@ -57,7 +57,7 @@ import useSWR from 'swr'
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 function Feedback () {
-  const API = 'https://fastfeedback.io/api/feedback/SITE_ID';
+  const API = 'https://nextjs-fast-feedback.vercel.app/api/feedback/SITE_ID';
   const { data, error } = useSWR(API, fetcher)
 
   if (error) return <div>Failed to load</div>

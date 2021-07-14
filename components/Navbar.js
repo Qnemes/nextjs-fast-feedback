@@ -1,7 +1,7 @@
 
 import NextLink from 'next/link';
 import { Button, Flex, Link } from '@chakra-ui/react';
-import { FastFeedbackIcon } from '@/styles/icons';
+import { FastFeedbackIcon } from 'src/styles/icons';
 
 const Navbar = () => {
 

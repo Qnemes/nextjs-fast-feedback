@@ -1,5 +1,5 @@
-import { getSite } from '@/lib/db-admin';
-import { logger, formatObjectKeys } from '@/utils/logger';
+import { getSite } from 'src/lib/db-admin';
+import { logger, formatObjectKeys } from 'src/utils/logger';
 
 export default async (req, res) => {
   try {

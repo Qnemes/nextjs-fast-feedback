@@ -1,5 +1,5 @@
 import { Heading, Flex, Text } from '@chakra-ui/react';
-import AddSiteModal from "@/components/AddSiteModal";
+import AddSiteModal from "src/components/AddSiteModal";
 
 const EmptyState = () => (
   <Flex

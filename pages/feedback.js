@@ -1,13 +1,13 @@
 import useSWR from 'swr';
 
-import { useAuth } from '@/lib/auth';
-import fetcher from '@/utils/fetcher';
-import DashboardShell from '@/components/DashboardShell';
-import FeedbackTable from '@/components/FeedbackTable';
-import FeedbackEmptyState from '@/components/FeedbackEmptyState';
-import FeedbackTableHeader from '@/components/FeedbackTableHeader';
-import FeedbackTableSkeleton from '@/components/FeedbackTableSkeleton';
-import SiteTableSkeleton from '@/components/SiteTableSkeleton';
+import { useAuth } from 'src/lib/auth';
+import fetcher from 'src/utils/fetcher';
+import DashboardShell from 'src/components/DashboardShell';
+import FeedbackTable from 'src/components/FeedbackTable';
+import FeedbackEmptyState from 'src/components/FeedbackEmptyState';
+import FeedbackTableHeader from 'src/components/FeedbackTableHeader';
+import FeedbackTableSkeleton from 'src/components/FeedbackTableSkeleton';
+import SiteTableSkeleton from 'src/components/SiteTableSkeleton';
 
 const AllFeedback = () => {
   const { user } = useAuth();

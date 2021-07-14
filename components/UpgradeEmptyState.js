@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Heading, Flex, Text, Button } from '@chakra-ui/react';
 
-import { useAuth } from '@/lib/auth';
-import { createCheckoutSession } from '@/lib/db';
+import { useAuth } from 'src/lib/auth';
+import { createCheckoutSession } from 'src/lib/db';
 
 const UpgradeEmptyState = () => {
   const { user } = useAuth();

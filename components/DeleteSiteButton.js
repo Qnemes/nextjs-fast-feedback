@@ -12,8 +12,8 @@ import {
 } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons'
 
-import { deleteSite } from '@/lib/db';
-import { useAuth } from '@/lib/auth';
+import { deleteSite } from 'src/lib/db';
+import { useAuth } from 'src/lib/auth';
 
 const DeleteSiteButton = ({ siteId }) => {
   const [isOpen, setIsOpen] = useState();

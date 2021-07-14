@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Stack } from '@chakra-ui/react';
-import { useAuth } from '@/lib/auth';
-import SEOPage from '@/components/SEOPage';
-import { FastFeedbackIcon, GitHubIcon, GoogleIcon } from '@/styles/icons';
+import { useAuth } from 'src/lib/auth';
+import SEOPage from 'src/components/SEOPage';
+import { FastFeedbackIcon, GitHubIcon, GoogleIcon } from 'src/styles/icons';
 
 const Login = () => {
   const auth = useAuth();

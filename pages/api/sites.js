@@ -1,6 +1,6 @@
-import { getUserSites } from "@/lib/db-admin";
-import { auth } from "@/lib/firebase-admin";
-import { logger, formatObjectKeys } from "@/utils/logger";
+import { getUserSites } from "src/lib/db-admin";
+import { auth } from "src/lib/firebase-admin";
+import { logger, formatObjectKeys } from "src/utils/logger";
 
 export default async (req, res) => {
   try {

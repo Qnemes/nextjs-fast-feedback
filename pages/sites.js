@@ -1,12 +1,12 @@
-import { useAuth } from '@/lib/auth';
-import DashboardShell from "@/components/DashboardShell";
-import EmptyState from '@/components/EmptyState';
-import UpgradeEmptyState from '@/components/UpgradeEmptyState';
-import SiteTableHeader from '@/components/SiteTableHeader';
-import SiteTableSkeleton from '@/components/SiteTableSkeleton';
+import { useAuth } from 'src/lib/auth';
+import DashboardShell from "src/components/DashboardShell";
+import EmptyState from 'src/components/EmptyState';
+import UpgradeEmptyState from 'src/components/UpgradeEmptyState';
+import SiteTableHeader from 'src/components/SiteTableHeader';
+import SiteTableSkeleton from 'src/components/SiteTableSkeleton';
 import useSWR from 'swr';
-import fetcher from '@/utils/fetcher';
-import SiteTable from '@/components/SiteTable';
+import fetcher from 'src/utils/fetcher';
+import SiteTable from 'src/components/SiteTable';
 
 const Dashboard = () => {
   const { user } = useAuth();

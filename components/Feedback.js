@@ -2,8 +2,8 @@ import { Box, Heading, Text, Divider, Flex, Code } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import MDXComponents from './MDXComponents';
-import { GitHubIcon, GoogleIcon, FastFeedbackIcon } from '@/styles/icons';
-import { useTheme } from '@/utils/useTheme';
+import { GitHubIcon, GoogleIcon, FastFeedbackIcon } from 'src/styles/icons';
+import { useTheme } from 'src/utils/useTheme';
 
 export default function Feedback({ author, text, createdAt, provider, isLast, settings, index }) {
   const colorMode = useTheme();

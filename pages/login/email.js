@@ -1,4 +1,4 @@
-import { useAuth } from '@/lib/auth';
+import { useAuth } from 'src/lib/auth';
 import {
   Box,
   Button,
@@ -10,11 +10,11 @@ import {
   Stack,
   useToast
 } from '@chakra-ui/react';
-import { FastFeedbackIcon } from '@/styles/icons';
+import { FastFeedbackIcon } from 'src/styles/icons';
 
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import SEOPage from '@/components/SEOPage';
+import SEOPage from 'src/components/SEOPage';
 
 const Login = () => {
   const toast = useToast();

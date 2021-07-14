@@ -1,7 +1,7 @@
 import { Button, Flex } from '@chakra-ui/react';
-import { GitHubIcon, GoogleIcon } from '@/styles/icons';
+import { GitHubIcon, GoogleIcon } from 'src/styles/icons';
 
-import { useAuth } from '@/lib/auth';
+import { useAuth } from 'src/lib/auth';
 
 const LoginButtons = () => {
   const auth = useAuth();

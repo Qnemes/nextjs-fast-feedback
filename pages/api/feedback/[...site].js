@@ -1,5 +1,5 @@
-import { getAllFeedback } from '@/lib/db-admin';
-import { logger, formatObjectKeys } from '@/utils/logger';
+import { getAllFeedback } from 'src/lib/db-admin';
+import { logger, formatObjectKeys } from 'src/utils/logger';
 
 export default async (req, res) => {
   try {

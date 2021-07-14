@@ -2,8 +2,8 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router'
 import { Box, Flex, Link, Avatar, Button } from '@chakra-ui/react';
 
-import { useAuth } from '@/lib/auth';
-import { FastFeedbackIcon } from '@/styles/icons';
+import { useAuth } from 'src/lib/auth';
+import { FastFeedbackIcon } from 'src/styles/icons';
 import Footer from './Footer';
 import { NextSeo } from 'next-seo';
 
@@ -14,7 +14,7 @@ const DashboardShell = ({ children }) => {
   const path = router.pathname;
   const capitalizedPath = path.charAt(1).toUpperCase() + path.slice(2);
   const title = `Fast Feedback – ${capitalizedPath}`;
-  const url = `https://fastfeedback.io${path}`;
+  const url = `https://nextjs-fast-feedback.vercel.app${path}`;
 
   return (
     <>

@@ -1,16 +1,16 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
-import { useAuth } from '@/lib/auth';
-import { getAllFeedback, getSite } from '@/lib/db-admin';
+import { getAllFeedback, getSite } from 'src/lib/db-admin';
+import { useAuth } from 'src/lib/auth';
 
 import { Box, Button, Flex, Text, Link } from "@chakra-ui/react";
-import { FastFeedbackIcon } from '@/styles/icons';
+import { FastFeedbackIcon } from 'src/styles/icons';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
-import LoginButtons from '@/components/LoginButtons';
-import FeedbackLink from '@/components/FeedbackLink';
-import Feedback from '@/components/Feedback';
-import Footer from '@/components/Footer';
+import LoginButtons from 'src/components/LoginButtons';
+import FeedbackLink from 'src/components/FeedbackLink';
+import Feedback from 'src/components/Feedback';
+import Footer from 'src/components/Footer';
 
 const SITE_ID = process.env.NEXT_PUBLIC_HOME_PAGE_SITE_ID;
 
@@ -34,7 +34,7 @@ export default function Home({ allFeedback, site }) {
     <Fragment>
       <Box bg="gray.100" py={16} px={4}>
         <Flex as="main" direction="column" maxW="700px" margin="0 auto">
-          <Head>
+          {/* <Head>
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -44,7 +44,7 @@ export default function Home({ allFeedback, site }) {
             `
               }}
             />
-          </Head>
+          </Head> */}
           <FastFeedbackIcon color="black" name="logo" boxSize="48px" mb={2} />
           <Text mb={4} fontSize="lg" paddingY={4}>
             <Text as="span" fontWeight="bold" display="inline">

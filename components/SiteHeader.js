@@ -19,7 +19,7 @@ const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
   const path = router.asPath;
 
   const title = siteName ? `Fast Feedback – ${siteName}` : `Fast Feedback – Loading...`;
-  const url = `https://fastfeedback.io${path}`;
+  const url = `https://nextjs-fast-feedback.vercel.app${path}`;
 
   return (
     <Fragment>

@@ -2,10 +2,10 @@ import { useRouter } from 'next/router';
 import { Box, Text } from '@chakra-ui/react';
 import 'iframe-resizer/js/iframeResizer.contentWindow';
 
-import Feedback from '@/components/Feedback';
-import FeedbackLink from '@/components/FeedbackLink';
-import { getAllFeedback, getAllSites, getSite } from '@/lib/db-admin';
-import { useTheme } from '@/utils/useTheme';
+import Feedback from 'src/components/Feedback';
+import FeedbackLink from 'src/components/FeedbackLink';
+import { getAllFeedback, getAllSites, getSite } from 'src/lib/db-admin';
+import { useTheme } from 'src/utils/useTheme';
 
 export async function getStaticProps(context) {
   const [siteId, route] = context.params.site;

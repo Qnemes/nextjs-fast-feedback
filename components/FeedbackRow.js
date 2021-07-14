@@ -2,8 +2,8 @@ import { Box, Code, Switch } from '@chakra-ui/react';
 import { mutate } from 'swr';
 
 import { Td } from './Table';
-import { useAuth } from '@/lib/auth';
-import { updateFeedback } from '@/lib/db';
+import { useAuth } from 'src/lib/auth';
+import { updateFeedback } from 'src/lib/db';
 import ReactMarkdown from 'react-markdown';
 import MDXComponents from './MDXComponents';
 import DeleteFeedbackButton from './DeleteFeedbackButton';

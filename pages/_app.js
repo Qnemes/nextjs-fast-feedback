@@ -1,10 +1,10 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import customTheme from '@/styles/theme';
+import customTheme from 'src/styles/theme';
 
-import { AuthProvider } from '@/lib/auth';
+import { AuthProvider } from 'src/lib/auth';
 
 import { MDXProvider } from '@mdx-js/react';
-import MDXComponents from '@/components/MDXComponents';
+import MDXComponents from 'src/components/MDXComponents';
 
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
