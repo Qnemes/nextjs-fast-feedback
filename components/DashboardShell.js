@@ -26,7 +26,7 @@ const DashboardShell = ({ children }) => {
           title
         }}
       />
-      <Box backgroundColor="gray.100" h="100vh">
+      <Box backgroundColor="gray.100" h="100vh" overflowY="scroll">
         <Flex
           backgroundColor="white"
           mb={[8, 16]}
