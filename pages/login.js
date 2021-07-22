@@ -7,12 +7,7 @@ const Login = () => {
   const auth = useAuth();
 
   return (
-    <Flex
-      align="center"
-      justify="center"
-      h="100vh"
-      backgroundColor={['white', 'gray.100']}
-    >
+    <Flex align="center" justify="center" h="100vh" backgroundColor={['white', 'gray.100']}>
       <Stack
         backgroundColor="white"
         borderRadius={[0, 8]}
@@ -39,7 +34,7 @@ const Login = () => {
           _hover={{ bg: 'gray.700' }}
           _active={{
             bg: 'gray.800',
-            transform: 'scale(0.95)'
+            transform: 'scale(0.95)',
           }}
         >
           Continue with GitHub
@@ -55,7 +50,7 @@ const Login = () => {
           _hover={{ bg: 'gray.100' }}
           _active={{
             bg: 'gray.100',
-            transform: 'scale(0.95)'
+            transform: 'scale(0.95)',
           }}
         >
           Continue with Google

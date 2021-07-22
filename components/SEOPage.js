@@ -12,7 +12,7 @@ const SEOPage = ({ name, path, children }) => {
         canonical={url}
         openGraph={{
           url,
-          title
+          title,
         }}
       />
       {children}

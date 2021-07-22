@@ -1,6 +1,6 @@
-import { getUserSites } from "src/lib/db-admin";
-import { auth } from "src/lib/firebase-admin";
-import { logger, formatObjectKeys } from "src/utils/logger";
+import { getUserSites } from 'src/lib/db-admin';
+import { auth } from 'src/lib/firebase-admin';
+import { logger, formatObjectKeys } from 'src/utils/logger';
 
 export default async (req, res) => {
   try {
@@ -14,15 +14,15 @@ export default async (req, res) => {
         request: {
           headers: formatObjectKeys(req.headers),
           url: req.url,
-          method: req.method
+          method: req.method,
         },
         response: {
-          statusCode: res.statusCode
-        }
+          statusCode: res.statusCode,
+        },
       },
       error.message
     );
 
     res.status(200).json({ error });
   }
-}
+};

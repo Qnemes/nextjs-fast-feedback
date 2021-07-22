@@ -16,10 +16,10 @@ const SEO = {
         url: 'https://nextjs-fast-feedback.vercel.app/og.png',
         alt: title,
         width: 1280,
-        height: 720
-      }
-    ]
-  }
+        height: 720,
+      },
+    ],
+  },
 };
 
 export default SEO;

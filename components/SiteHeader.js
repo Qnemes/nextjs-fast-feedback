@@ -1,14 +1,7 @@
 import { Fragment } from 'react';
 import NextLink from 'next/link';
-import { useRouter } from 'next/router'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Heading,
-  Flex,
-  Box
-} from '@chakra-ui/react';
+import { useRouter } from 'next/router';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Heading, Flex, Box } from '@chakra-ui/react';
 
 import { NextSeo } from 'next-seo';
 import EditSiteModal from './EditSiteModal';
@@ -28,7 +21,7 @@ const SiteHeader = ({ isSiteOwner, site, siteId, route }) => {
         canonical={url}
         openGraph={{
           url,
-          title
+          title,
         }}
       />
       <Box mx={4}>

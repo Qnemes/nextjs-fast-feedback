@@ -15,23 +15,23 @@ export async function getStaticProps(context) {
   return {
     props: {
       initialFeedback: feedback,
-      site
+      site,
     },
-    revalidate: 1
+    revalidate: 1,
   };
 }
 
 export async function getStaticPaths() {
   const { sites } = await getAllSites();
-  const paths = sites.map(site => ({
+  const paths = sites.map((site) => ({
     params: {
-      site: [site.id.toString()]
-    }
+      site: [site.id.toString()],
+    },
   }));
 
   return {
     paths,
-    fallback: true
+    fallback: true,
   };
 }
 
@@ -40,7 +40,7 @@ const EmbeddedFeedbackPage = ({ initialFeedback, site }) => {
   const colorMode = useTheme();
   const textColor = {
     light: 'gray.900',
-    dark: 'gray.200'
+    dark: 'gray.200',
   };
 
   return (
@@ -56,9 +56,7 @@ const EmbeddedFeedbackPage = ({ initialFeedback, site }) => {
           />
         ))
       ) : (
-        <Text color={textColor[colorMode]}>
-          There are no comments for this site.
-        </Text>
+        <Text color={textColor[colorMode]}>There are no comments for this site.</Text>
       )}
     </Box>
   );

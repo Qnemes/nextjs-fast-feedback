@@ -20,19 +20,15 @@ const AllFeedback = () => {
         <FeedbackTableSkeleton />
         <SiteTableSkeleton />
       </DashboardShell>
-    )
+    );
   }
 
   return (
     <DashboardShell>
       <FeedbackTableHeader />
-      {data?.feedback?.length ? (
-        <FeedbackTable feedback={data.feedback} />
-      ) : (
-        <FeedbackEmptyState />
-      )}
+      {data?.feedback?.length ? <FeedbackTable feedback={data.feedback} /> : <FeedbackEmptyState />}
     </DashboardShell>
-  )
-}
+  );
+};
 
 export default AllFeedback;

@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import {
-  Avatar, Heading, Box, Button, Flex, Text, Badge, StatGroup, Stat, StatLabel, StatNumber,
-  StatHelpText
+  Avatar,
+  Heading,
+  Box,
+  Button,
+  Flex,
+  Text,
+  Badge,
+  StatGroup,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
 } from '@chakra-ui/react';
 
 import DashboardShell from 'src/components/DashboardShell';
@@ -41,18 +51,10 @@ const SettingsTable = ({ stripeRole, children }) => (
       py={4}
     >
       <Flex justify="space-between" align="center" w="full">
-        <Text
-          textTransform="uppercase"
-          fontSize="xs"
-          color="gray.500"
-          fontWeight="medium"
-          mt={1}
-        >
+        <Text textTransform="uppercase" fontSize="xs" color="gray.500" fontWeight="medium" mt={1}>
           Settings
         </Text>
-        <Badge colorScheme="blue">
-          {stripeRole}
-        </Badge>
+        <Badge colorScheme="blue">{stripeRole}</Badge>
       </Flex>
     </Flex>
     <Flex direction="column" p={6}>
@@ -67,28 +69,17 @@ const Account = () => {
 
   return (
     <DashboardShell>
-      <Flex
-        direction="column"
-        maxW="600px"
-        align={['left', 'center']}
-        margin="0 auto"
-      >
+      <Flex direction="column" maxW="600px" align={['left', 'center']} margin="0 auto">
         <Flex direction="column" align={['left', 'center']} ml={4}>
-          <Avatar
-            w={['3rem', '6rem']}
-            h={['3rem', '6rem']}
-            mb={4}
-            src={user?.photoUrl}
-          />
+          <Avatar w={['3rem', '6rem']} h={['3rem', '6rem']} mb={4} src={user?.photoUrl} />
           <Heading letterSpacing="-1px">{user?.name}</Heading>
           <Text>{user?.email}</Text>
         </Flex>
         <SettingsTable stripeRole={user?.stripeRole}>
           <FeedbackUsage />
           <Text my={4}>
-            Fast Feedback uses Stripe to update, change, or cancel your
-            subscription. You can also update card information and billing
-            addresses through the secure portal.
+            Fast Feedback uses Stripe to update, change, or cancel your subscription. You can also
+            update card information and billing addresses through the secure portal.
           </Text>
           <Flex justify="flex-end">
             <Button variant="ghost" ml={4} onClick={() => signout()}>
@@ -107,7 +98,7 @@ const Account = () => {
               _hover={{ bg: 'gray.700' }}
               _active={{
                 bg: 'gray.800',
-                transform: 'scale(0.95)'
+                transform: 'scale(0.95)',
               }}
             >
               Manage Billing
@@ -116,7 +107,7 @@ const Account = () => {
         </SettingsTable>
       </Flex>
     </DashboardShell>
-  )
-}
+  );
+};
 
 export default Account;

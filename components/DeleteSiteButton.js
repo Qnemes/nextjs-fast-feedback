@@ -8,9 +8,9 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   IconButton,
-  Button
+  Button,
 } from '@chakra-ui/react';
-import { DeleteIcon } from '@chakra-ui/icons'
+import { DeleteIcon } from '@chakra-ui/icons';
 
 import { deleteSite } from 'src/lib/db';
 import { useAuth } from 'src/lib/auth';
@@ -27,7 +27,7 @@ const DeleteSiteButton = ({ siteId }) => {
       ['/api/sites', auth.user.token],
       async (data) => {
         return {
-          sites: data.sites.filter((site) => site.id !== siteId)
+          sites: data.sites.filter((site) => site.id !== siteId),
         };
       },
       false
@@ -44,30 +44,21 @@ const DeleteSiteButton = ({ siteId }) => {
         variant="ghost"
         onClick={() => setIsOpen(true)}
       />
-      <AlertDialog
-        isOpen={isOpen}
-        leastDestructiveRef={cancelRef}
-        onClose={onClose}
-      >
+      <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose}>
         <AlertDialogOverlay />
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
             Delete Site
           </AlertDialogHeader>
           <AlertDialogBody>
-            Are you sure? This will also delete all feedback left on the site.
-            You can&apos;t undo this action afterwards.
+            Are you sure? This will also delete all feedback left on the site. You can&apos;t undo
+            this action afterwards.
           </AlertDialogBody>
           <AlertDialogFooter>
             <Button ref={cancelRef} onClick={onClose}>
               Cancel
             </Button>
-            <Button
-              fontWeight="bold"
-              colorScheme="red"
-              onClick={onDelete}
-              ml={3}
-            >
+            <Button fontWeight="bold" colorScheme="red" onClick={onDelete} ml={3}>
               Delete
             </Button>
           </AlertDialogFooter>

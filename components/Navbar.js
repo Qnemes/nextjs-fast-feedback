@@ -1,10 +1,8 @@
-
 import NextLink from 'next/link';
 import { Button, Flex, Link } from '@chakra-ui/react';
 import { FastFeedbackIcon } from 'src/styles/icons';
 
 const Navbar = () => {
-
   return (
     <Flex backgroundColor="white" mb={4} w="full" borderTop="5px solid #0AF5F4">
       <Flex
@@ -40,7 +38,7 @@ const Navbar = () => {
               _hover={{ bg: 'gray.700' }}
               _active={{
                 bg: 'gray.800',
-                transform: 'scale(0.95)'
+                transform: 'scale(0.95)',
               }}
             >
               Login

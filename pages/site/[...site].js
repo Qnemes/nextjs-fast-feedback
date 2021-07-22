@@ -1,9 +1,9 @@
 import { useRef } from 'react';
-import { useRouter } from "next/router";
-import { Box, Button, FormControl, FormLabel, Textarea } from "@chakra-ui/react";
+import { useRouter } from 'next/router';
+import { Box, Button, FormControl, Textarea } from '@chakra-ui/react';
 
 import useSWR, { mutate } from 'swr';
-import { useAuth } from "src/lib/auth";
+import { useAuth } from 'src/lib/auth';
 import { createFeedback } from 'src/lib/db';
 import fetcher from 'src/utils/fetcher';
 
@@ -20,9 +20,7 @@ const FeedbackPage = () => {
   const siteAndRoute = router.query?.site;
   const siteId = siteAndRoute ? siteAndRoute[0] : null;
   const route = siteAndRoute ? siteAndRoute[1] : null;
-  const feedbackApi = route
-    ? `/api/feedback/${siteId}/${route}`
-    : `/api/feedback/${siteId}`;
+  const feedbackApi = route ? `/api/feedback/${siteId}/${route}` : `/api/feedback/${siteId}`;
 
   const { data: siteData } = useSWR(`/api/site/${siteId}`, fetcher);
   const { data: feedbackData } = useSWR(feedbackApi, fetcher);
@@ -42,7 +40,7 @@ const FeedbackPage = () => {
       text: event.target.elements.comment.value.replace('\n', '\n\n'), //direct access instead of ref, better performance
       createdAt: new Date().toISOString(),
       provider: user.provider,
-      status: "active"
+      status: 'active',
     };
 
     inputEl.current.value = '';
@@ -50,7 +48,7 @@ const FeedbackPage = () => {
     mutate(
       feedbackApi,
       async (data) => ({
-        feedback: [newFeedback, ...data.feedback]
+        feedback: [newFeedback, ...data.feedback],
       }),
       false
     );
@@ -69,7 +67,7 @@ const FeedbackPage = () => {
         _hover={{ bg: 'gray.700' }}
         _active={{
           bg: 'gray.800',
-          transform: 'scale(0.95)'
+          transform: 'scale(0.95)',
         }}
       >
         Leave Feedback
@@ -86,13 +84,7 @@ const FeedbackPage = () => {
         siteId={siteId}
         route={route}
       />
-      <Box
-        display="flex"
-        mx={4}
-        flexDirection="column"
-        width="full"
-        maxWidth="700px"
-      >
+      <Box display="flex" mx={4} flexDirection="column" width="full" maxWidth="700px">
         <Box as="form" onSubmit={onSubmit}>
           <FormControl mb={8}>
             <Textarea

@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { Box, Flex, Link, Avatar, Button } from '@chakra-ui/react';
 
 import { useAuth } from 'src/lib/auth';
@@ -23,16 +23,11 @@ const DashboardShell = ({ children }) => {
         canonical={url}
         openGraph={{
           url,
-          title
+          title,
         }}
       />
       <Box backgroundColor="gray.100" h="100vh" overflowY="scroll">
-        <Flex
-          backgroundColor="white"
-          mb={[8, 16]}
-          w="full"
-          borderTop="5px solid #0AF5F4"
-        >
+        <Flex backgroundColor="white" mb={[8, 16]} w="full" borderTop="5px solid #0AF5F4">
           <Flex
             alignItems="center"
             justifyContent="space-between"
@@ -59,7 +54,9 @@ const DashboardShell = ({ children }) => {
             </Flex>
             <Flex justifyContent="center" alignItems="center">
               {user && (
-                <Button id="user-logout-button" mr={2} variant="ghost" onClick={() => signout()}>Log Out</Button>
+                <Button id="user-logout-button" mr={2} variant="ghost" onClick={() => signout()}>
+                  Log Out
+                </Button>
               )}
               <NextLink href="/account" passHref>
                 <Link id="account-link-button">
@@ -68,12 +65,12 @@ const DashboardShell = ({ children }) => {
               </NextLink>
             </Flex>
           </Flex>
-        </Flex >
+        </Flex>
         <Flex margin="0 auto" direction="column" maxW="1250px" px={[0, 8, 8]}>
           {children}
         </Flex>
         <Footer />
-      </Box >
+      </Box>
     </>
   );
 };

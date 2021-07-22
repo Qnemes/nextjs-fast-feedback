@@ -8,7 +8,7 @@ import {
   FormLabel,
   Input,
   Stack,
-  useToast
+  useToast,
 } from '@chakra-ui/react';
 import { FastFeedbackIcon } from 'src/styles/icons';
 
@@ -20,19 +20,23 @@ const Login = () => {
   const toast = useToast();
   const [loading, setLoading] = useState(false);
   const { signinWithEmail } = useAuth();
-  const { handleSubmit, register, formState: { errors } } = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
 
   const onLogin = ({ email, password }) => {
     email = email.trim();
     setLoading(true);
-    signinWithEmail(email, password).catch(error => {
+    signinWithEmail(email, password).catch((error) => {
       setLoading(false);
       toast({
         title: 'An error occurred.',
         description: error.message,
         status: 'error',
         duration: 5000,
-        isClosable: true
+        isClosable: true,
       });
     });
   };
@@ -45,7 +49,7 @@ const Login = () => {
         borderRadius={[0, 8]}
         errors={errors}
         maxWidth="400px"
-        onSubmit={handleSubmit(data => onLogin(data))}
+        onSubmit={handleSubmit((data) => onLogin(data))}
         px={8}
         py={12}
         shadow={[null, 'md']}
@@ -65,13 +69,11 @@ const Login = () => {
             id="email"
             name="email"
             placeholder="example@mail.com"
-            {...register("email", {
-              required: "Please, enter your e-mail"
+            {...register('email', {
+              required: 'Please, enter your e-mail',
             })}
           />
-          <FormErrorMessage>
-            {errors.email && errors.email.message}
-          </FormErrorMessage>
+          <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={errors.password && errors.password.message}>
           <FormLabel>Password</FormLabel>
@@ -81,13 +83,11 @@ const Login = () => {
             id="password"
             type="password"
             placeholder="********"
-            {...register("password", {
-              required: "Please enter your password"
+            {...register('password', {
+              required: 'Please enter your password',
             })}
           />
-          <FormErrorMessage>
-            {errors.password && errors.password.message}
-          </FormErrorMessage>
+          <FormErrorMessage>{errors.password && errors.password.message}</FormErrorMessage>
         </FormControl>
         <Button
           id="login"
@@ -102,7 +102,7 @@ const Login = () => {
           _hover={{ bg: 'gray.700' }}
           _active={{
             bg: 'gray.800',
-            transform: 'scale(0.95)'
+            transform: 'scale(0.95)',
           }}
         >
           Login

@@ -19,7 +19,7 @@ const LoginButtons = () => {
         _hover={{ bg: 'gray.700' }}
         _active={{
           bg: 'gray.800',
-          transform: 'scale(0.95)'
+          transform: 'scale(0.95)',
         }}
       >
         Continue with GitHub
@@ -35,7 +35,7 @@ const LoginButtons = () => {
         _hover={{ bg: 'gray.100' }}
         _active={{
           bg: 'gray.100',
-          transform: 'scale(0.95)'
+          transform: 'scale(0.95)',
         }}
       >
         Continue with Google

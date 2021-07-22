@@ -5,7 +5,7 @@ export default function FeedbackLink({ paths }) {
   const colorMode = useTheme();
   const linkColor = {
     light: 'gray.900',
-    dark: 'gray.100'
+    dark: 'gray.100',
   };
 
   return (

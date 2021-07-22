@@ -5,7 +5,6 @@ import { Td } from './Table';
 import { useAuth } from 'src/lib/auth';
 import { updateFeedback } from 'src/lib/db';
 import ReactMarkdown from 'react-markdown';
-import MDXComponents from './MDXComponents';
 import DeleteFeedbackButton from './DeleteFeedbackButton';
 
 const FeedbackRow = ({ id, author, text, route, status }) => {
@@ -21,9 +20,7 @@ const FeedbackRow = ({ id, author, text, route, status }) => {
     <Box as="tr" key={id}>
       <Td fontWeight="medium">{author}</Td>
       <Td>
-        <ReactMarkdown>
-          {text}
-        </ReactMarkdown>
+        <ReactMarkdown>{text}</ReactMarkdown>
       </Td>
       <Td>
         <Code

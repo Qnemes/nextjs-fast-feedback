@@ -13,7 +13,7 @@ import {
   Button,
   Switch,
   useToast,
-  useDisclosure
+  useDisclosure,
 } from '@chakra-ui/react';
 import { SettingsIcon } from '@chakra-ui/icons';
 
@@ -26,14 +26,14 @@ const EditSiteModal = ({ settings, siteId, children }) => {
 
   const onUpdateSite = async (newSettings) => {
     await updateSite(siteId, {
-      settings: newSettings
+      settings: newSettings,
     });
     toast({
       title: 'Success!',
       description: "We've updated your site.",
       status: 'success',
       duration: 5000,
-      isClosable: true
+      isClosable: true,
     });
 
     mutate(`/api/site/${siteId}`);
@@ -51,7 +51,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
         _hover={{ bg: 'gray.700' }}
         _active={{
           bg: 'gray.800',
-          transform: 'scale(0.95)'
+          transform: 'scale(0.95)',
         }}
       >
         {children}
@@ -62,12 +62,11 @@ const EditSiteModal = ({ settings, siteId, children }) => {
           <ModalHeader fontWeight="bold">Edit Site</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-
             <FormControl>
               <Switch
                 id="show-timestamp"
                 key={settings?.timestamp}
-                {...register("timestamp")}
+                {...register('timestamp')}
                 color="green"
                 defaultIsChecked={settings?.timestamp}
               />
@@ -80,7 +79,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
               <Switch
                 id="show-icons"
                 key={settings?.icons}
-                {...register("icons")}
+                {...register('icons')}
                 color="green"
                 defaultIsChecked={settings?.icons}
               />
@@ -93,7 +92,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
               <Switch
                 id="show-ratings"
                 key={settings?.ratings}
-                {...register("ratings")}
+                {...register('ratings')}
                 color="green"
                 defaultIsChecked={settings?.ratings}
               />
@@ -101,19 +100,13 @@ const EditSiteModal = ({ settings, siteId, children }) => {
                 Show Ratings
               </FormLabel>
             </FormControl>
-
           </ModalBody>
 
           <ModalFooter>
             <Button onClick={onClose} mr={3} fontWeight="medium">
               Cancel
             </Button>
-            <Button
-              backgroundColor="#99FFFE"
-              color="#194D4C"
-              fontWeight="medium"
-              type="submit"
-            >
+            <Button backgroundColor="#99FFFE" color="#194D4C" fontWeight="medium" type="submit">
               Update
             </Button>
           </ModalFooter>

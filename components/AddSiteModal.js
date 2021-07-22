@@ -15,12 +15,12 @@ import {
   FormLabel,
   Input,
   useToast,
-  useDisclosure
-} from "@chakra-ui/react";
+  useDisclosure,
+} from '@chakra-ui/react';
 
 const AddSiteModal = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast()
+  const toast = useToast();
   const auth = useAuth();
   const { register, handleSubmit } = useForm();
 
@@ -33,8 +33,8 @@ const AddSiteModal = ({ children }) => {
       settings: {
         icons: true,
         timestamp: true,
-        ratings: false
-      }
+        ratings: false,
+      },
     };
 
     const { id } = createSite(newSite);
@@ -43,21 +43,22 @@ const AddSiteModal = ({ children }) => {
       description: "We've added your site.",
       status: 'success',
       duration: 5000,
-      isClosable: true
+      isClosable: true,
     });
     mutate(
       ['/api/sites', auth.user.token],
       async (data) => ({
-        sites: [{ id, ...newSite }, ...data.sites]
+        sites: [{ id, ...newSite }, ...data.sites],
       }),
       false
     );
     onClose();
-  }
+  };
 
   return (
     <>
-      <Button id="add-site-modal-button"
+      <Button
+        id="add-site-modal-button"
         onClick={onOpen}
         backgroundColor="gray.900"
         color="white"
@@ -65,7 +66,7 @@ const AddSiteModal = ({ children }) => {
         _hover={{ bg: 'gray.700' }}
         _active={{
           bg: 'gray.800',
-          transform: 'scale(0.95)'
+          transform: 'scale(0.95)',
         }}
       >
         {children}
@@ -78,22 +79,24 @@ const AddSiteModal = ({ children }) => {
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel htmlFor="site-input">Name</FormLabel>
-              <Input id="site-input"
+              <Input
+                id="site-input"
                 name="name"
                 placeholder="My site"
-                {...register("siteName", {
-                  required: true
+                {...register('siteName', {
+                  required: true,
                 })}
               />
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel htmlFor="link-input">Link</FormLabel>
-              <Input id="link-input"
+              <Input
+                id="link-input"
                 name="url"
                 placeholder="https://example.com"
-                {...register("siteUrl", {
-                  required: true
+                {...register('siteUrl', {
+                  required: true,
                 })}
               />
             </FormControl>
@@ -110,7 +113,7 @@ const AddSiteModal = ({ children }) => {
         </ModalContent>
       </Modal>
     </>
-  )
-}
+  );
+};
 
 export default AddSiteModal;

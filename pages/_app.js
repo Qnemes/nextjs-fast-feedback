@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider } from '@chakra-ui/react';
 import customTheme from 'src/styles/theme';
 
 import { AuthProvider } from 'src/lib/auth';
@@ -21,9 +21,9 @@ function App({ Component, pageProps }) {
           </Head>
           <Component {...pageProps} />
         </MDXProvider>
-      </AuthProvider >
-    </ChakraProvider >
-  )
+      </AuthProvider>
+    </ChakraProvider>
+  );
 }
 
 export default App;

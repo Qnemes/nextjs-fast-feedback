@@ -13,11 +13,11 @@ export default async (req, res) => {
         request: {
           headers: formatObjectKeys(req.headers),
           url: req.url,
-          method: req.method
+          method: req.method,
         },
         response: {
-          statusCode: res.statusCode
-        }
+          statusCode: res.statusCode,
+        },
       },
       error.message
     );

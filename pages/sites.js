@@ -1,5 +1,5 @@
 import { useAuth } from 'src/lib/auth';
-import DashboardShell from "src/components/DashboardShell";
+import DashboardShell from 'src/components/DashboardShell';
 import EmptyState from 'src/components/EmptyState';
 import UpgradeEmptyState from 'src/components/UpgradeEmptyState';
 import SiteTableHeader from 'src/components/SiteTableHeader';
@@ -19,7 +19,7 @@ const Dashboard = () => {
         <SiteTableHeader />
         <SiteTableSkeleton />
       </DashboardShell>
-    )
+    );
   }
 
   if (data.sites.length) {
@@ -36,7 +36,7 @@ const Dashboard = () => {
       <SiteTableHeader isPaidAccount={isPaidAccount} />
       {isPaidAccount ? <EmptyState /> : <UpgradeEmptyState />}
     </DashboardShell>
-  )
-}
+  );
+};
 
 export default Dashboard;

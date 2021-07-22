@@ -9,28 +9,30 @@ export default function Feedback({ author, text, createdAt, provider, isLast, se
   const colorMode = useTheme();
   const authorColor = {
     light: 'gray.900',
-    dark: 'gray.200'
+    dark: 'gray.200',
   };
   const textColor = {
     light: 'gray.800',
-    dark: 'gray.300'
+    dark: 'gray.300',
   };
   const dividerColor = {
     light: 'gray.200',
-    dark: 'gray.700'
+    dark: 'gray.700',
   };
 
   let icon = null;
   if (provider) {
-    switch (provider.slice(0, -4).toLowerCase()) {  // removing .top-level domain to get only provider name
-      case "google":
+    switch (
+      provider.slice(0, -4).toLowerCase() // removing .top-level domain to get only provider name
+    ) {
+      case 'google':
         icon = <GoogleIcon ml={2} />;
         break;
-      case "github":
+      case 'github':
         icon = <GitHubIcon ml={2} />;
         break;
       default:
-        icon = <FastFeedbackIcon ml={2} />
+        icon = <FastFeedbackIcon ml={2} />;
     }
   }
 
@@ -67,20 +69,15 @@ export default function Feedback({ author, text, createdAt, provider, isLast, se
               </pre>
             ),
             /* eslint-enable react/display-name */
-            pre: MDXComponents.inlineCode
+            pre: MDXComponents.inlineCode,
           }}
         >
           {text}
         </ReactMarkdown>
       </Box>
       {!isLast && (
-        <Divider
-          borderColor={dividerColor[colorMode]}
-          backgroundColor="gray.200"
-          mt={6}
-          mb={6}
-        />
+        <Divider borderColor={dividerColor[colorMode]} backgroundColor="gray.200" mt={6} mb={6} />
       )}
     </Box>
-  )
+  );
 }

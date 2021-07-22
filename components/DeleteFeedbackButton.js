@@ -8,9 +8,9 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   IconButton,
-  Button
+  Button,
 } from '@chakra-ui/react';
-import { DeleteIcon } from '@chakra-ui/icons'
+import { DeleteIcon } from '@chakra-ui/icons';
 
 import { deleteFeedback } from 'src/lib/db';
 import { useAuth } from 'src/lib/auth';
@@ -25,11 +25,9 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
     deleteFeedback(feedbackId);
     mutate(
       ['/api/feedback', auth.user.token],
-      async data => {
+      async (data) => {
         return {
-          feedback: data.feedback.filter(
-            feedback => feedback.id !== feedbackId
-          )
+          feedback: data.feedback.filter((feedback) => feedback.id !== feedbackId),
         };
       },
       false
@@ -64,7 +62,13 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
             <Button ref={cancelRef} onClick={onClose}>
               Cancel
             </Button>
-            <Button id="delete-feedback-modal-button" fontWeight="bold" colorScheme="red" onClick={onDelete} ml={3}>
+            <Button
+              id="delete-feedback-modal-button"
+              fontWeight="bold"
+              colorScheme="red"
+              onClick={onDelete}
+              ml={3}
+            >
               Delete
             </Button>
           </AlertDialogFooter>
