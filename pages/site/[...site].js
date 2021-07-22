@@ -100,7 +100,7 @@ const FeedbackPage = () => {
         {allFeedback &&
           allFeedback.map((feedback, index) => (
             <Feedback
-              key={feedback?.id}
+              key={feedback.id}
               index={index}
               settings={site?.settings}
               isLast={index === allFeedback.length - 1}
