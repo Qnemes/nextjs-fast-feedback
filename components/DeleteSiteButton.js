@@ -44,7 +44,12 @@ const DeleteSiteButton = ({ siteId }) => {
         variant="ghost"
         onClick={() => setIsOpen(true)}
       />
-      <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose}>
+      <AlertDialog
+        id="delete-site-modal"
+        isOpen={isOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+      >
         <AlertDialogOverlay />
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
@@ -58,7 +63,13 @@ const DeleteSiteButton = ({ siteId }) => {
             <Button ref={cancelRef} onClick={onClose}>
               Cancel
             </Button>
-            <Button fontWeight="bold" colorScheme="red" onClick={onDelete} ml={3}>
+            <Button
+              id="delete-site-modal-button"
+              fontWeight="bold"
+              colorScheme="red"
+              onClick={onDelete}
+              ml={3}
+            >
               Delete
             </Button>
           </AlertDialogFooter>
