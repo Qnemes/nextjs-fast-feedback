@@ -1,4 +1,4 @@
-const title = 'Fast Feedback – The easiest way to add comments or reviews to your static site.';
+const title = 'Fast Feedback – The easiest way to add comments to your site';
 const description = 'Fast Feedback is being built as part of React 2025.';
 
 const SEO = {
